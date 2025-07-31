@@ -17,7 +17,7 @@ while True :
         
 #Palabra reservada try q se usa para ejecutar un bloque q puede causar error
     try:
-        n1 = float("Ingrese primer numero")
+        n1 = float("Ingrese primer numero") -> pinshi error tmreeeeeeee
         n2= float("Ingrese asegundo numero")
         if opcion =="1":
             resultado = n1+n2
