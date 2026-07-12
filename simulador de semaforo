@@ -1,0 +1,78 @@
+<!-- Creación de un simulador de semáforo colgado de dos postes con cables.
+     El usuario coloca el peso y el ángulo que forman los cables con los postes
+     y así se calcula la tensión de los cables. -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Semáforo - Física</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="shortcut icon" href="kity-en-moto.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <h1>Simulador de Semáforo</h1>
+    <p class="descripcion">"Hello Kitty se encontraba dando una vuelta en su moto por la ciudad cuando, de pronto, se detuvo justo debajo de un semáforo que colgaba entre dos postes, sostenido únicamente por dos cables en ángulo. Curiosa como siempre, ahora quiere hallar la tensión que soporta cada cable, conociendo el peso del semáforo y el ángulo que forman con los postes. Ayúdala moviendo los controles y descubre cómo cambia la tensión."</p>
+
+    <!-- Canvas: espacio del dibujo -->
+    <canvas id="simuladorCanvas" width="1400" height="320"></canvas>
+    <p class="hint">Arrastra el semáforo o mueve los deslizadores para modificar los parámetros.</p>
+
+    <!-- Panel de control en el que se cambia las variables-->
+    <div class="controles">
+        <div class="control-item">
+            <div class="control-etiqueta">Peso del Semáforo (W)</div>
+            <div class="control-fila">
+                <input type="range" id="peso" min="10" max="500" value="150" step="1">
+                <span class="valor"><span id="pesoVal">150</span> N</span>
+            </div>
+        </div>
+
+        <div class="control-item">
+            <div class="control-etiqueta">Ángulo de los cables (θ)</div>
+            <div class="control-fila">
+                <input type="range" id="angulo" min="5" max="85" value="35" step="1">
+                <span class="valor"><span id="anguloVal">35</span>°</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjetas de resultados -->
+    <div class="resultados">
+        <div class="resultado">
+            <div class="resultado-etiqueta">Tensión cable<br>izquierdo (T1)</div>
+            <div class="resultado-valor" id="t1">----</div>
+            <div class="resultado-unidad">Newtons</div>
+        </div>
+        <div class="resultado">
+            <div class="resultado-etiqueta">Tensión cable<br>derecho (T2)</div>
+            <div class="resultado-valor" id="t2">----</div>
+            <div class="resultado-unidad">Newtons</div>
+        </div>
+        <div class="resultado">
+            <div class="resultado-etiqueta">Componente<br>horizontal</div>
+            <div class="resultado-valor" id="horiz">----</div>
+            <div class="resultado-unidad">Newtons</div>
+        </div>
+    </div>
+
+    <!-- Explicación de la fórmula -->
+    <div class="cajadeformulas">
+        <p class="formula-titulo">Fórmula usada (Equilibrio Estático)</p>
+        <p class="formula">2 · T · sin(θ) = W <br><strong>T = W / (2 · sin(θ))</strong></p>
+        <p class="formula-descripcion">Como el sistema es simétrico, este se mantiene en equilibrio:
+            T1 = T2 = T.
+            <br>Si el ángulo tiende a 0° (cables horizontales), la tensión tiende a infinito.
+        </p>
+    </div>
+    <footer>
+        <p>Melany Hanady</p>
+        <p>&copy; Copyright 2026. Todos los derechos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
