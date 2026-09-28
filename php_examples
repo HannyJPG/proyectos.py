@@ -1,0 +1,13 @@
+<?php
+$servidor = "localhost"; #creacion de un servidor 
+$usuario ="root";
+$password=" ";
+
+
+$conexion = new mysqli($servidor,$usuario,$password);#conexion
+if($conexion->connect_error){ #Condincional de conexion
+    die("Error de conexion".$conexion->connect_error);
+}
+echo "Conexion establecida"
+
+?>
